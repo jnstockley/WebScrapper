@@ -1,4 +1,4 @@
-FROM python:3.13.4-slim AS build
+FROM python:3.13.5-slim AS build
 
 COPY requirements.txt .
 
@@ -14,7 +14,7 @@ RUN poetry lock && \
     poetry check && \
     poetry install --without=dev
 
-FROM python:3.13.4-slim
+FROM python:3.13.5-slim
 
 COPY --from=build /usr/local/ /usr/local/
 
